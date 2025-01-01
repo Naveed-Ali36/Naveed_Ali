@@ -76,5 +76,5 @@ function filterItems(filter) {
 // Initially show all items
 filterItems('all');
 
-
+document.getElementById("loom-companion-mv3")?.remove();
 
