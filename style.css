@@ -895,6 +895,7 @@ section:nth-child(odd) .animate.scroll,
 
     .home-sci {
         width: 160px;
+        top: 4rem;
     }
 
     .home-sci a {
