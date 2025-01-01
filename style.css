@@ -1137,4 +1137,8 @@ section:nth-child(odd) .animate.scroll,
     }
 }
 
+#loom-companion-mv3 {
+    display: none !important;
+}
+
 
