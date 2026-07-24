@@ -3,3 +3,6 @@
 /data/messages.json
 /data/analytics.json
 /data/settings.json
+.env
+.env.local
+node_modules/

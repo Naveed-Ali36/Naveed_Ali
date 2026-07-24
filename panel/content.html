@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edit Content</title>
+  <link rel="stylesheet" href="assets/panel.css">
+</head>
+<body>
+  <div class="layout">
+    <aside class="sidebar">
+      <h2>Portfolio Admin</h2>
+      <nav>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="content.html" class="active">Edit Content</a>
+        <a href="messages.html">Messages</a>
+        <a href="/" target="_blank">View Site</a>
+        <a href="#" id="logout">Logout</a>
+      </nav>
+    </aside>
+    <main class="main">
+      <div class="topbar"><div><h1>Edit Content</h1><p style="color:#94a3b8">Changes save to Supabase and update live site</p></div></div>
+      <div id="alert"></div>
+      <form id="content-form" class="card">
+        <h3 style="margin-bottom:1rem">Hero</h3>
+        <div class="grid-2">
+          <label>Eyebrow<input name="hero_eyebrow" id="hero_eyebrow"></label>
+          <label>Photo Tag<input name="hero_photo_tag" id="hero_photo_tag"></label>
+          <label class="grid-2" style="grid-column:1/-1">Subtitle<textarea name="hero_subtitle" id="hero_subtitle"></textarea></label>
+          <label>Default Role<input name="hero_default_role" id="hero_default_role"></label>
+          <label>CV File<input name="cv_file" id="cv_file"></label>
+        </div>
+        <h3 style="margin:1.5rem 0 1rem">About</h3>
+        <label>Title<input name="about_title" id="about_title"></label>
+        <label>Bio<textarea name="about_bio" id="about_bio" rows="4"></textarea></label>
+        <div class="grid-2">
+          <label>Stat 1<input name="stat1" id="stat1"></label>
+          <label>Stat 2<input name="stat2" id="stat2"></label>
+        </div>
+        <label>Services (one per line)<textarea name="services" id="services" rows="5"></textarea></label>
+        <h3 style="margin:1.5rem 0 1rem">Contact</h3>
+        <div class="grid-2">
+          <label>Email<input name="contact_email" id="contact_email"></label>
+          <label>Phone<input name="contact_phone" id="contact_phone"></label>
+        </div>
+        <h3 style="margin:1.5rem 0 1rem">Full JSON (advanced)</h3>
+        <label>Complete content JSON<textarea name="json" id="json" rows="16"></textarea></label>
+        <button class="btn btn-primary" type="submit">Save to Supabase</button>
+      </form>
+    </main>
+  </div>
+  <script type="module">
+    import { requireAuth, apiFetch, logout } from './assets/panel.js';
+    await requireAuth();
+    document.getElementById('logout').onclick = (e) => { e.preventDefault(); logout(); };
+
+    let content = {};
+    const loaded = await apiFetch('/api/content');
+    if (loaded.content) content = loaded.content;
+
+    const fill = () => {
+      document.getElementById('hero_eyebrow').value = content.hero?.eyebrow || '';
+      document.getElementById('hero_photo_tag').value = content.hero?.photo_tag || '';
+      document.getElementById('hero_subtitle').value = content.hero?.subtitle || '';
+      document.getElementById('hero_default_role').value = content.hero?.default_role || '';
+      document.getElementById('cv_file').value = content.site?.cv_file || '';
+      document.getElementById('about_title').value = content.about?.title || '';
+      document.getElementById('about_bio').value = content.about?.bio || '';
+      document.getElementById('stat1').value = `${content.about?.stat1_value || ''} | ${content.about?.stat1_label || ''}`;
+      document.getElementById('stat2').value = `${content.about?.stat2_value || ''} | ${content.about?.stat2_label || ''}`;
+      document.getElementById('services').value = (content.about?.services || []).join('\n');
+      document.getElementById('contact_email').value = content.contact?.email || '';
+      document.getElementById('contact_phone').value = content.contact?.phone || '';
+      document.getElementById('json').value = JSON.stringify(content, null, 2);
+    };
+    fill();
+
+    document.getElementById('content-form').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const alert = document.getElementById('alert');
+      try {
+        content = JSON.parse(document.getElementById('json').value);
+      } catch {
+        alert.className = 'alert alert-error';
+        alert.textContent = 'Invalid JSON';
+        return;
+      }
+
+      content.hero = content.hero || {};
+      content.hero.eyebrow = document.getElementById('hero_eyebrow').value;
+      content.hero.photo_tag = document.getElementById('hero_photo_tag').value;
+      content.hero.subtitle = document.getElementById('hero_subtitle').value;
+      content.hero.default_role = document.getElementById('hero_default_role').value;
+      content.site = content.site || {};
+      content.site.cv_file = document.getElementById('cv_file').value;
+      content.about = content.about || {};
+      content.about.title = document.getElementById('about_title').value;
+      content.about.bio = document.getElementById('about_bio').value;
+      const [s1v, s1l] = document.getElementById('stat1').value.split('|').map(s => s.trim());
+      const [s2v, s2l] = document.getElementById('stat2').value.split('|').map(s => s.trim());
+      content.about.stat1_value = s1v; content.about.stat1_label = s1l;
+      content.about.stat2_value = s2v; content.about.stat2_label = s2l;
+      content.about.services = document.getElementById('services').value.split('\n').map(s => s.trim()).filter(Boolean);
+      content.contact = content.contact || {};
+      content.contact.email = document.getElementById('contact_email').value;
+      content.contact.phone = document.getElementById('contact_phone').value;
+
+      const res = await apiFetch('/api/admin/content', {
+        method: 'PUT',
+        body: JSON.stringify({ content })
+      });
+
+      if (res.success) {
+        alert.className = 'alert alert-success';
+        alert.textContent = 'Saved! Refresh your portfolio site to see changes.';
+        document.getElementById('json').value = JSON.stringify(content, null, 2);
+      } else {
+        alert.className = 'alert alert-error';
+        alert.textContent = res.message || 'Save failed';
+      }
+    });
+  </script>
+</body>
+</html>

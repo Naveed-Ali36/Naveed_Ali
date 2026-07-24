@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="assets/panel.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+</head>
+<body>
+  <div class="layout">
+    <aside class="sidebar">
+      <h2>Portfolio Admin</h2>
+      <nav>
+        <a href="dashboard.html" class="active">Dashboard</a>
+        <a href="content.html">Edit Content</a>
+        <a href="messages.html">Messages</a>
+        <a href="/" target="_blank">View Site</a>
+        <a href="#" id="logout">Logout</a>
+      </nav>
+    </aside>
+    <main class="main">
+      <div class="topbar">
+        <div><h1>Dashboard</h1><p style="color:#94a3b8">Supabase powered analytics</p></div>
+      </div>
+      <div class="stats" id="stats"></div>
+      <div class="grid-2">
+        <div class="card"><h3 style="margin-bottom:1rem">Visitor Analytics</h3><canvas id="visitsChart"></canvas></div>
+        <div class="card"><h3 style="margin-bottom:1rem">Messages</h3><canvas id="msgChart"></canvas></div>
+      </div>
+    </main>
+  </div>
+  <script type="module">
+    import { requireAuth, apiFetch, logout } from './assets/panel.js';
+    await requireAuth();
+    document.getElementById('logout').onclick = (e) => { e.preventDefault(); logout(); };
+
+    const data = await apiFetch('/api/admin/stats');
+    if (!data.success) throw new Error(data.message);
+    const s = data.stats;
+
+    document.getElementById('stats').innerHTML = `
+      <div class="stat"><strong>${s.total_visits}</strong><span>Total Visits</span></div>
+      <div class="stat"><strong>${s.today_visits}</strong><span>Today</span></div>
+      <div class="stat"><strong>${s.projects}</strong><span>Projects</span></div>
+      <div class="stat"><strong>${s.messages}</strong><span>Messages (${s.unread_messages} new)</span></div>`;
+
+    const labels = Object.keys(s.visits_chart || {}).reverse();
+    const values = labels.map(k => s.visits_chart[k]);
+    new Chart(document.getElementById('visitsChart'), {
+      type: 'line',
+      data: { labels, datasets: [{ data: values, borderColor: '#3b82f6', backgroundColor: 'rgba(59,130,246,.15)', fill: true, tension: .4 }] },
+      options: { plugins: { legend: { display: false } }, scales: { y: { beginAtZero: true } } }
+    });
+
+    new Chart(document.getElementById('msgChart'), {
+      type: 'doughnut',
+      data: {
+        labels: ['Read', 'Unread'],
+        datasets: [{ data: [s.messages - s.unread_messages, s.unread_messages], backgroundColor: ['#22c55e', '#f59e0b'] }]
+      }
+    });
+  </script>
+</body>
+</html>

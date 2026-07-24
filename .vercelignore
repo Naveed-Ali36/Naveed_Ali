@@ -1,6 +1,5 @@
-admin/
 includes/
-api/
 data/
 index.php
-*.php
+admin/
+api/contact.php

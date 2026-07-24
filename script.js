@@ -85,25 +85,14 @@ form?.addEventListener('submit', async (e) => {
     btn.disabled = true;
     btn.innerHTML = 'Sending...';
 
-    const formData = new FormData(form);
-    const payload = Object.fromEntries(formData.entries());
+    const payload = Object.fromEntries(new FormData(form).entries());
 
     try {
-        let response;
-        if (form.action.includes('formsubmit.co')) {
-            const ajaxUrl = form.action.replace('https://formsubmit.co/', 'https://formsubmit.co/ajax/');
-            response = await fetch(ajaxUrl, {
-                method: 'POST',
-                headers: { 'Accept': 'application/json' },
-                body: formData
-            });
-        } else {
-            response = await fetch(form.action || 'api/contact.php', {
-                method: 'POST',
-                body: formData
-            });
-        }
-
+        const response = await fetch(form.action || '/api/contact', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+            body: JSON.stringify(payload)
+        });
         const data = await response.json();
         if (data.success) {
             btn.innerHTML = 'Sent! ✓';

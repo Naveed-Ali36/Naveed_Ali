@@ -332,10 +332,7 @@
                     <a href="tel:+923026829510"><i class='bx bx-phone'></i> Call Me</a>
                 </div>
             </div>
-            <form class="contact-form" action="https://formsubmit.co/naveed.ali35824@gmail.com" method="POST">
-                <input type="hidden" name="_subject" value="New Portfolio Contact — Naveed Ali">
-                <input type="hidden" name="_captcha" value="false">
-                <input type="hidden" name="_template" value="table">
+            <form class="contact-form" action="/api/contact" method="POST">
                 <div class="field"><input type="text" name="name" placeholder="Your Name" required></div>
                 <div class="field"><input type="email" name="email" placeholder="Email Address" required></div>
                 <div class="field"><input type="text" name="project_type" placeholder="Project Type (Website, App, etc.)"></div>
@@ -353,6 +350,7 @@
     <script>
         window.PORTFOLIO_ROLES = ["Web Developer & Tracking","GHL CRM Automation","Conversion & Funnel Expert","WordPress Development","React & React Native"];
     </script>
+    <script src="js/content-sync.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

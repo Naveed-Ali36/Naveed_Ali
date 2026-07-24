@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Login</title>
+  <link rel="stylesheet" href="assets/panel.css">
+</head>
+<body class="login-wrap">
+  <div class="login-card">
+    <h1>Portfolio Admin</h1>
+    <p style="color:#94a3b8;margin:1rem 0 1.5rem">Login with your Supabase account</p>
+    <div id="alert"></div>
+    <form id="login-form">
+      <label>Email<input type="email" name="email" required placeholder="naveed.ali35824@gmail.com"></label>
+      <label>Password<input type="password" name="password" required></label>
+      <button class="btn btn-primary" type="submit" style="width:100%;justify-content:center;margin-top:.5rem">Login</button>
+    </form>
+    <p style="color:#64748b;font-size:.85rem;margin-top:1rem">Create user in Supabase → Authentication → Users</p>
+  </div>
+  <script type="module">
+    import { getSupabase, getSession } from './assets/panel.js';
+
+    const session = await getSession();
+    if (session) location.href = 'dashboard.html';
+
+    document.getElementById('login-form').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const fd = new FormData(e.target);
+      const supabase = await getSupabase();
+      const { error } = await supabase.auth.signInWithPassword({
+        email: fd.get('email'),
+        password: fd.get('password')
+      });
+      const alert = document.getElementById('alert');
+      if (error) {
+        alert.className = 'alert alert-error';
+        alert.textContent = error.message;
+        return;
+      }
+      location.href = 'dashboard.html';
+    });
+  </script>
+</body>
+</html>
