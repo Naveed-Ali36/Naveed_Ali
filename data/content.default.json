@@ -1,0 +1,163 @@
+{
+    "site": {
+        "title": "Naveed Ali — Developer",
+        "description": "Naveed Ali — Software Developer crafting bold digital products.",
+        "cv_file": "Naveed-Ali.pdf",
+        "footer_year": "2026",
+        "footer_name": "Naveed Ali"
+    },
+    "hero": {
+        "eyebrow": "Web Developer, GHL CRM & Tracking — Multan, PK",
+        "headline_lines": ["Building", "digital", "products", "that matter."],
+        "outline_line_index": 1,
+        "accent_line_index": 2,
+        "subtitle": "I craft high-performance websites, WordPress stores, and mobile apps for clients who want more than a template — they want impact.",
+        "photo": "images/2.png",
+        "photo_tag": "Present @ Evolvo",
+        "role_label": "Currently focused on",
+        "default_role": "Web Developer & Tracking"
+    },
+    "roles": [
+        "Web Developer & Tracking",
+        "GHL CRM Automation",
+        "Conversion & Funnel Expert",
+        "WordPress Development",
+        "React & React Native"
+    ],
+    "marquee": [
+        "WordPress", "Keitaro", "React", "Laravel", "Node.js",
+        "GHL Automation", "React Native", "PHP", "MongoDB", "MySQL"
+    ],
+    "about": {
+        "heading": "About Me",
+        "photo": "images/home3.png",
+        "title": "Passionate about clean code & bold design.",
+        "bio": "Hello! I'm Naveed Ali — an IT professional with a BS in Information Technology and hands-on experience in web development, WordPress, conversion tracking, GHL CRM automation, and database administration. I build high-converting landing pages, set up GoHighLevel workflows, integrate CRM & affiliate systems, and deliver secure, user-focused digital solutions.",
+        "stat1_value": "15+",
+        "stat1_label": "Projects Delivered",
+        "stat2_value": "10+",
+        "stat2_label": "Happy Clients",
+        "location_label": "Based in",
+        "location": "Multan, Pakistan",
+        "services": [
+            "Web Development",
+            "WordPress & WooCommerce",
+            "Keitaro & Conversion Tracking",
+            "GHL CRM Automation",
+            "CRM & API Integration",
+            "React Native & MERN Stack",
+            "Database Administration"
+        ]
+    },
+    "projects": [
+        {
+            "id": "p1",
+            "title": "Ethletia",
+            "url": "https://ethletia.com/",
+            "description": "Full-scale web platform — modern UI, responsive design",
+            "image": "images/Screenshot (51).png",
+            "active": true
+        },
+        {
+            "id": "p2",
+            "title": "InfoTech Solutions",
+            "url": "https://www.infotechsolutions.cloud/",
+            "description": "Corporate website with clean architecture & branding",
+            "image": "images/Screenshot (50).png",
+            "active": true
+        },
+        {
+            "id": "p3",
+            "title": "Vision Technologies",
+            "url": "https://vtech.com.pk/",
+            "description": "Tech company website — dynamic sections & performance",
+            "image": "images/Screenshot (46).png",
+            "active": true
+        },
+        {
+            "id": "p4",
+            "title": "VTech Platform",
+            "url": "https://vtech.com.pk/",
+            "description": "Enterprise web solution with scalable backend",
+            "image": "images/Screenshot (48).png",
+            "active": true
+        },
+        {
+            "id": "p5",
+            "title": "TinyG Greenhouse",
+            "url": "https://www.tinyg.greenhousemarketing.co.uk/",
+            "description": "UK client project — marketing site with custom design",
+            "image": "images/Screenshot (53).png",
+            "active": true
+        }
+    ],
+    "experience": [
+        {
+            "id": "e1",
+            "period": "Feb 2026 — Present",
+            "title": "Web Developer, Tracking & GHL CRM Automation — Evolvo",
+            "description": "Develop and maintain high-converting landing pages and sales funnels. Configure Keitaro to track clicks, leads, and conversions across campaigns. Build GoHighLevel (GHL) CRM automations — workflows, pipelines, triggers, and follow-ups to nurture and convert leads automatically. Integrate GetLink affiliate links and APIs to capture leads into CRM systems. Manage Trackbox, set up postbacks, and API integrations for accurate end-to-end conversion reporting.",
+            "current": true
+        },
+        {
+            "id": "e2",
+            "period": "Jan 2024 — Jan 2025",
+            "title": "Software & App Development — Vision Giants",
+            "description": "Developed responsive, SEO-friendly websites using HTML, CSS, JavaScript, PHP, and Laravel. Built cross-platform mobile and web applications with React Native, Node.js, and MongoDB — delivering secure, scalable, user-centric solutions.",
+            "current": false
+        },
+        {
+            "id": "e3",
+            "period": "Aug 2023 — Jan 2024",
+            "title": "Web Development & WordPress — Developer Point",
+            "description": "Designed and developed responsive websites using WordPress and custom web technologies. Customized themes and plugins according to client requirements.",
+            "current": false
+        },
+        {
+            "id": "e4",
+            "period": "Jan 2022 — May 2023",
+            "title": "Database Administration — Vision Technologies",
+            "description": "Managed and maintained databases to ensure data integrity, security, and performance. Performed database optimization, backup, and recovery using MySQL and phpMyAdmin.",
+            "current": false
+        }
+    ],
+    "education": [
+        {
+            "id": "ed1",
+            "period": "2020 — 2024",
+            "title": "BS Information Technology — MNS University, Multan",
+            "description": "Software development, networking, and database management with hands-on IT project experience."
+        },
+        {
+            "id": "ed2",
+            "period": "2018 — 2020",
+            "title": "ICS — Comrade College of Science, Multan",
+            "description": "Computer Science, Mathematics, and Physics — strong foundation in logic and problem-solving."
+        },
+        {
+            "id": "ed3",
+            "period": "2016 — 2018",
+            "title": "Matriculation — IBN-E-Qasim High School, Multan",
+            "description": "Science stream with Physics, Chemistry, Biology, and Mathematics."
+        }
+    ],
+    "skills_row1": [
+        "HTML & CSS", "JavaScript", "React", "Node.js", "PHP", "Laravel",
+        "WordPress", "WooCommerce", "React Native", "MongoDB", "MySQL", "Git"
+    ],
+    "skills_row2": [
+        "Keitaro", "GHL CRM", "Automations", "REST APIs", "Trackbox", "Postbacks", "SEO", "Sales Funnels"
+    ],
+    "contact": {
+        "heading": "Have a project?\nLet's build it.",
+        "subtitle": "Tell me about your idea — I'll get back to you within 24 hours.",
+        "email": "naveed.ali35824@gmail.com",
+        "phone": "+92 302 6829510",
+        "whatsapp": "+923026829510"
+    },
+    "social": {
+        "linkedin": "https://www.linkedin.com/in/naveed-ali-216bb82a0/",
+        "facebook": "https://www.facebook.com/imnaveedali/",
+        "whatsapp": "https://wa.me/+923026829510"
+    }
+}
