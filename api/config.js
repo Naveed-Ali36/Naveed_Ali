@@ -6,9 +6,13 @@ export default async function handler(req, res) {
 
   if (req.method === 'OPTIONS') return res.status(200).end();
 
+  const supabaseUrl = process.env.SUPABASE_URL || '';
+  const supabaseAnonKey = process.env.SUPABASE_ANON_KEY || '';
+
   return sendJson(res, 200, {
     success: true,
-    supabaseUrl: process.env.SUPABASE_URL || '',
-    supabaseAnonKey: process.env.SUPABASE_ANON_KEY || ''
+    supabaseUrl,
+    supabaseAnonKey,
+    configured: !!(supabaseUrl && supabaseAnonKey)
   });
 }

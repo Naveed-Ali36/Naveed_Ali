@@ -8,8 +8,8 @@ export default async function handler(req, res) {
   if (req.method === 'OPTIONS') return res.status(200).end();
 
   try {
-    const user = await verifyAdmin(req);
-    if (!user) return sendJson(res, 401, { success: false, message: 'Unauthorized' });
+    const auth = await verifyAdmin(req);
+    if (!auth.user) return sendJson(res, auth.status, { success: false, message: auth.message });
 
     const supabase = getSupabaseAdmin();
 

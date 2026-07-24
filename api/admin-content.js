@@ -12,8 +12,8 @@ export default async function handler(req, res) {
   }
 
   try {
-    const user = await verifyAdmin(req);
-    if (!user) return sendJson(res, 401, { success: false, message: 'Unauthorized' });
+    const auth = await verifyAdmin(req);
+    if (!auth.user) return sendJson(res, auth.status, { success: false, message: auth.message });
 
     let body = req.body;
     if (typeof body === 'string') body = JSON.parse(body);
