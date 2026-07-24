@@ -106,7 +106,7 @@
       content.contact.email = document.getElementById('contact_email').value;
       content.contact.phone = document.getElementById('contact_phone').value;
 
-      const res = await apiFetch('/api/admin/content', {
+      const res = await apiFetch('/api/admin-content', {
         method: 'PUT',
         body: JSON.stringify({ content })
       });

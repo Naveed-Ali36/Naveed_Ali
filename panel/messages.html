@@ -30,7 +30,7 @@
     document.getElementById('logout').onclick = (e) => { e.preventDefault(); logout(); };
 
     async function load() {
-      const data = await apiFetch('/api/admin/messages');
+      const data = await apiFetch('/api/admin-messages');
       const list = document.getElementById('list');
       if (!data.success || !data.messages?.length) {
         list.innerHTML = '<p style="color:#94a3b8">No messages yet.</p>';
@@ -52,12 +52,12 @@
       }</tbody></table>`;
 
       list.querySelectorAll('[data-read]').forEach(btn => btn.onclick = async () => {
-        await apiFetch('/api/admin/messages', { method: 'PATCH', body: JSON.stringify({ id: btn.dataset.read, read: true }) });
+        await apiFetch('/api/admin-messages', { method: 'PATCH', body: JSON.stringify({ id: btn.dataset.read, read: true }) });
         load();
       });
       list.querySelectorAll('[data-del]').forEach(btn => btn.onclick = async () => {
         if (!confirm('Delete message?')) return;
-        await apiFetch('/api/admin/messages', { method: 'DELETE', body: JSON.stringify({ id: btn.dataset.del }) });
+        await apiFetch('/api/admin-messages', { method: 'DELETE', body: JSON.stringify({ id: btn.dataset.del }) });
         load();
       });
     }

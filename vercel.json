@@ -11,6 +11,9 @@
     }
   ],
   "rewrites": [
+    { "source": "/api/admin/stats", "destination": "/api/admin-stats" },
+    { "source": "/api/admin/content", "destination": "/api/admin-content" },
+    { "source": "/api/admin/messages", "destination": "/api/admin-messages" },
     { "source": "/admin/:path*", "destination": "/404.html" },
     { "source": "/includes/:path*", "destination": "/404.html" },
     { "source": "/data/:path*", "destination": "/404.html" }

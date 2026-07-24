@@ -1,4 +1,4 @@
-import { getSupabaseAdmin, verifyAdmin, sendJson } from '../../lib/supabase.js';
+import { getSupabaseAdmin, verifyAdmin, sendJson } from '../lib/supabase.js';
 
 export default async function handler(req, res) {
   res.setHeader('Access-Control-Allow-Origin', '*');
@@ -7,12 +7,12 @@ export default async function handler(req, res) {
 
   if (req.method === 'OPTIONS') return res.status(200).end();
 
-  const user = await verifyAdmin(req);
-  if (!user) return sendJson(res, 401, { success: false, message: 'Unauthorized' });
-
-  const supabase = getSupabaseAdmin();
-
   try {
+    const user = await verifyAdmin(req);
+    if (!user) return sendJson(res, 401, { success: false, message: 'Unauthorized' });
+
+    const supabase = getSupabaseAdmin();
+
     if (req.method === 'GET') {
       const { data, error } = await supabase
         .from('messages')
@@ -41,6 +41,6 @@ export default async function handler(req, res) {
 
     return sendJson(res, 405, { success: false, message: 'Method not allowed' });
   } catch (err) {
-    return sendJson(res, 500, { success: false, message: err.message });
+    return sendJson(res, 500, { success: false, message: err.message || 'Server error' });
   }
 }

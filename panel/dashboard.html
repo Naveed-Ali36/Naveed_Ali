@@ -40,7 +40,7 @@
     document.getElementById('logout').onclick = (e) => { e.preventDefault(); logout(); };
 
     try {
-      const data = await apiFetch('/api/admin/stats');
+      const data = await apiFetch('/api/admin-stats');
       if (!data.success) throw new Error(data.message || 'Could not load stats');
 
       const s = data.stats;
@@ -68,7 +68,7 @@
     });
     } catch (err) {
       document.querySelector('.main').insertAdjacentHTML('beforeend',
-        `<div class="alert alert-error">${err.message}. Add SUPABASE_SERVICE_ROLE_KEY on Vercel and redeploy.</div>`);
+        `<div class="alert alert-error">${err.message}</div>`);
     }
   </script>
 </body>

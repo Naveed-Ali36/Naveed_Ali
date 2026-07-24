@@ -70,7 +70,20 @@ export async function apiFetch(url, options = {}) {
     headers.Authorization = `Bearer ${session.access_token}`;
   }
   const res = await fetch(url, { ...options, headers });
-  return res.json();
+  const text = await res.text();
+
+  let data;
+  try {
+    data = text ? JSON.parse(text) : {};
+  } catch {
+    throw new Error(text.slice(0, 120) || `Request failed (${res.status})`);
+  }
+
+  if (!res.ok && !data.message) {
+    data.message = `Request failed (${res.status})`;
+  }
+
+  return data;
 }
 
 export async function logout() {
