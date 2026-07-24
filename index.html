@@ -1,3 +1,358 @@
-<?php
-header('Location: index.php');
-exit;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Naveed Ali — Software Developer crafting bold digital products.">
+    <title>Naveed Ali — Developer</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@500;600;700;800&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="noise" aria-hidden="true"></div>
+    <div class="cursor-glow" id="cursor-glow" aria-hidden="true"></div>
+
+    <header class="nav">
+        <a href="#home" class="nav-brand">NAVEED ALI</a>
+        <nav class="nav-links">
+            <a href="#about"><span>01</span> About</a>
+            <a href="#work"><span>02</span> Work</a>
+            <a href="#journey"><span>03</span> Journey</a>
+            <a href="#contact"><span>04</span> Contact</a>
+        </nav>
+        <a href="#contact" class="nav-cta">
+            <span>Start a Project</span>
+            <i class='bx bx-right-arrow-alt'></i>
+        </a>
+        <button class="nav-toggle" id="nav-toggle" aria-label="Menu"><span></span><span></span></button>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="hero-grid">
+            <div class="hero-copy">
+                <p class="eyebrow">Web Developer, GHL CRM &amp; Tracking — Multan, PK</p>
+                <h1 class="hero-headline">
+                    <span class="line">Building</span>
+                    <span class="line outline">digital</span>
+                    <span class="line accent">products</span>
+                    <span class="line">that matter.</span>
+                </h1>
+                <p class="hero-sub">I craft high-performance websites, WordPress stores, and mobile apps for clients who want more than a template — they want impact.</p>
+                <div class="hero-actions">
+                    <a href="#work" class="btn btn-lime">View My Work</a>
+                    <a href="Naveed-Ali.pdf" download class="btn btn-ghost">Download CV</a>
+                </div>
+            </div>
+            <div class="hero-photo">
+                <div class="photo-frame">
+                    <img src="images/2.png" alt="Naveed Ali">
+                </div>
+                <div class="photo-tag">Present @ Evolvo</div>
+            </div>
+        </div>
+        <div class="hero-bottom">
+            <div class="hero-role">
+                <span>Currently focused on</span>
+                <strong id="role-text">Web Developer &amp; Tracking</strong>
+            </div>
+            <div class="hero-socials">
+                <a href="https://www.linkedin.com/in/naveed-ali-216bb82a0/" target="_blank" rel="noopener">LinkedIn</a>
+                <a href="https://www.facebook.com/imnaveedali/" target="_blank" rel="noopener">Facebook</a>
+                <a href="https://wa.me/+923026829510" target="_blank" rel="noopener">WhatsApp</a>
+            </div>
+        </div>
+    </section>
+
+    <div class="marquee-wrap" aria-hidden="true">
+        <div class="marquee">
+            <span>WordPress</span><span>•</span>
+            <span>Keitaro</span><span>•</span>
+            <span>React</span><span>•</span>
+            <span>Laravel</span><span>•</span>
+            <span>Node.js</span><span>•</span>
+            <span>GHL Automation</span><span>•</span>
+            <span>React Native</span><span>•</span>
+            <span>PHP</span><span>•</span>
+            <span>MongoDB</span><span>•</span>
+            <span>MySQL</span><span>•</span>
+            <span>WordPress</span><span>•</span>
+            <span>Keitaro</span><span>•</span>
+            <span>React</span><span>•</span>
+            <span>Laravel</span><span>•</span>
+            <span>Node.js</span><span>•</span>
+            <span>GHL Automation</span><span>•</span>
+            <span>React Native</span><span>•</span>
+            <span>PHP</span><span>•</span>
+            <span>MongoDB</span><span>•</span>
+            <span>MySQL</span><span>•</span>
+        </div>
+    </div>
+
+    <section class="about" id="about">
+        <div class="section-top reveal">
+            <span class="section-num">01</span>
+            <h2>About Me</h2>
+        </div>
+        <div class="bento reveal">
+            <div class="bento-card bento-photo">
+                <img src="images/home3.png" alt="About">
+            </div>
+            <div class="bento-card bento-bio">
+                <h3>Passionate about clean code &amp; bold design.</h3>
+                <p>Hello! I'm Naveed Ali — an IT professional with a BS in Information Technology and hands-on experience in web development, WordPress, conversion tracking, GHL CRM automation, and database administration. I build high-converting landing pages, set up GoHighLevel workflows, integrate CRM &amp; affiliate systems, and deliver secure, user-focused digital solutions.</p>
+            </div>
+            <div class="bento-card bento-stat">
+                <strong>15+</strong>
+                <span>Projects Delivered</span>
+            </div>
+            <div class="bento-card bento-stat">
+                <strong>10+</strong>
+                <span>Happy Clients</span>
+            </div>
+            <div class="bento-card bento-location">
+                <i class='bx bx-map-pin'></i>
+                <div>
+                    <span>Based in</span>
+                    <strong>Multan, Pakistan</strong>
+                </div>
+            </div>
+            <div class="bento-card bento-services">
+                <span>Services</span>
+                <ul>
+                    <li>Web Development</li>
+                    <li>WordPress &amp; WooCommerce</li>
+                    <li>Keitaro &amp; Conversion Tracking</li>
+                    <li>GHL CRM Automation</li>
+                    <li>CRM &amp; API Integration</li>
+                    <li>React Native &amp; MERN Stack</li>
+                    <li>Database Administration</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="work" id="work">
+        <div class="section-top reveal">
+            <span class="section-num">02</span>
+            <h2>Selected Work</h2>
+        </div>
+        <div class="work-list">
+            <article class="work-item reveal">
+                <a href="https://ethletia.com/" target="_blank" rel="noopener" class="work-link">
+                    <span class="work-num">01</span>
+                    <div class="work-info">
+                        <h3>Ethletia</h3>
+                        <p>Full-scale web platform — modern UI, responsive design</p>
+                    </div>
+                    <span class="work-arrow"><i class='bx bx-right-arrow-alt'></i></span>
+                    <div class="work-preview">
+                        <img src="images/Screenshot (51).png" alt="Ethletia">
+                    </div>
+                </a>
+            </article>
+            <article class="work-item reveal">
+                <a href="https://www.infotechsolutions.cloud/" target="_blank" rel="noopener" class="work-link">
+                    <span class="work-num">02</span>
+                    <div class="work-info">
+                        <h3>InfoTech Solutions</h3>
+                        <p>Corporate website with clean architecture &amp; branding</p>
+                    </div>
+                    <span class="work-arrow"><i class='bx bx-right-arrow-alt'></i></span>
+                    <div class="work-preview">
+                        <img src="images/Screenshot (50).png" alt="InfoTech Solutions">
+                    </div>
+                </a>
+            </article>
+            <article class="work-item reveal">
+                <a href="https://vtech.com.pk/" target="_blank" rel="noopener" class="work-link">
+                    <span class="work-num">03</span>
+                    <div class="work-info">
+                        <h3>Vision Technologies</h3>
+                        <p>Tech company website — dynamic sections &amp; performance</p>
+                    </div>
+                    <span class="work-arrow"><i class='bx bx-right-arrow-alt'></i></span>
+                    <div class="work-preview">
+                        <img src="images/Screenshot (46).png" alt="Vision Technologies">
+                    </div>
+                </a>
+            </article>
+            <article class="work-item reveal">
+                <a href="https://vtech.com.pk/" target="_blank" rel="noopener" class="work-link">
+                    <span class="work-num">04</span>
+                    <div class="work-info">
+                        <h3>VTech Platform</h3>
+                        <p>Enterprise web solution with scalable backend</p>
+                    </div>
+                    <span class="work-arrow"><i class='bx bx-right-arrow-alt'></i></span>
+                    <div class="work-preview">
+                        <img src="images/Screenshot (48).png" alt="VTech Platform">
+                    </div>
+                </a>
+            </article>
+            <article class="work-item reveal">
+                <a href="https://www.tinyg.greenhousemarketing.co.uk/" target="_blank" rel="noopener" class="work-link">
+                    <span class="work-num">05</span>
+                    <div class="work-info">
+                        <h3>TinyG Greenhouse</h3>
+                        <p>UK client project — marketing site with custom design</p>
+                    </div>
+                    <span class="work-arrow"><i class='bx bx-right-arrow-alt'></i></span>
+                    <div class="work-preview">
+                        <img src="images/Screenshot (53).png" alt="TinyG Greenhouse">
+                    </div>
+                </a>
+            </article>
+        </div>
+    </section>
+
+    <section class="journey" id="journey">
+        <div class="section-top reveal">
+            <span class="section-num">03</span>
+            <h2>Experience &amp; Education</h2>
+        </div>
+        <div class="journey-tabs reveal">
+            <button class="tab active" data-tab="experience">Experience</button>
+            <button class="tab" data-tab="education">Education</button>
+        </div>
+        <div class="journey-panel active reveal" id="experience">
+            <div class="journey-row current">
+                <span class="j-year">Feb 2026 — Present</span>
+                <div class="j-content">
+                    <h4>Web Developer, Tracking &amp; GHL CRM Automation — Evolvo</h4>
+                    <p>Develop and maintain high-converting landing pages and sales funnels. Configure Keitaro to track clicks, leads, and conversions across campaigns. Build GoHighLevel (GHL) CRM automations — workflows, pipelines, triggers, and follow-ups to nurture and convert leads automatically. Integrate GetLink affiliate links and APIs to capture leads into CRM systems. Manage Trackbox, set up postbacks, and API integrations for accurate end-to-end conversion reporting.</p>
+                </div>
+            </div>
+            <div class="journey-row">
+                <span class="j-year">Jan 2024 — Jan 2025</span>
+                <div class="j-content">
+                    <h4>Software &amp; App Development — Vision Giants</h4>
+                    <p>Developed responsive, SEO-friendly websites using HTML, CSS, JavaScript, PHP, and Laravel. Built cross-platform mobile and web applications with React Native, Node.js, and MongoDB — delivering secure, scalable, user-centric solutions.</p>
+                </div>
+            </div>
+            <div class="journey-row">
+                <span class="j-year">Aug 2023 — Jan 2024</span>
+                <div class="j-content">
+                    <h4>Web Development &amp; WordPress — Developer Point</h4>
+                    <p>Designed and developed responsive websites using WordPress and custom web technologies. Customized themes and plugins according to client requirements.</p>
+                </div>
+            </div>
+            <div class="journey-row">
+                <span class="j-year">Jan 2022 — May 2023</span>
+                <div class="j-content">
+                    <h4>Database Administration — Vision Technologies</h4>
+                    <p>Managed and maintained databases to ensure data integrity, security, and performance. Performed database optimization, backup, and recovery using MySQL and phpMyAdmin.</p>
+                </div>
+            </div>
+        </div>
+        <div class="journey-panel reveal" id="education">
+            <div class="journey-row">
+                <span class="j-year">2020 — 2024</span>
+                <div class="j-content">
+                    <h4>BS Information Technology — MNS University, Multan</h4>
+                    <p>Software development, networking, and database management with hands-on IT project experience.</p>
+                </div>
+            </div>
+            <div class="journey-row">
+                <span class="j-year">2018 — 2020</span>
+                <div class="j-content">
+                    <h4>ICS — Comrade College of Science, Multan</h4>
+                    <p>Computer Science, Mathematics, and Physics — strong foundation in logic and problem-solving.</p>
+                </div>
+            </div>
+            <div class="journey-row">
+                <span class="j-year">2016 — 2018</span>
+                <div class="j-content">
+                    <h4>Matriculation — IBN-E-Qasim High School, Multan</h4>
+                    <p>Science stream with Physics, Chemistry, Biology, and Mathematics.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="skills" id="skills">
+        <div class="skills-row skills-row-1">
+            <span>HTML &amp; CSS</span>
+            <span>JavaScript</span>
+            <span>React</span>
+            <span>Node.js</span>
+            <span>PHP</span>
+            <span>Laravel</span>
+            <span>WordPress</span>
+            <span>WooCommerce</span>
+            <span>React Native</span>
+            <span>MongoDB</span>
+            <span>MySQL</span>
+            <span>Git</span>
+            <span>HTML &amp; CSS</span>
+            <span>JavaScript</span>
+            <span>React</span>
+            <span>Node.js</span>
+            <span>PHP</span>
+            <span>Laravel</span>
+            <span>WordPress</span>
+            <span>WooCommerce</span>
+            <span>React Native</span>
+            <span>MongoDB</span>
+            <span>MySQL</span>
+            <span>Git</span>
+        </div>
+        <div class="skills-row skills-row-2">
+            <span>Keitaro</span>
+            <span>GHL CRM</span>
+            <span>Automations</span>
+            <span>REST APIs</span>
+            <span>Trackbox</span>
+            <span>Postbacks</span>
+            <span>SEO</span>
+            <span>Sales Funnels</span>
+            <span>Keitaro</span>
+            <span>GHL CRM</span>
+            <span>Automations</span>
+            <span>REST APIs</span>
+            <span>Trackbox</span>
+            <span>Postbacks</span>
+            <span>SEO</span>
+            <span>Sales Funnels</span>
+        </div>
+    </section>
+
+    <section class="contact" id="contact">
+        <div class="contact-inner reveal">
+            <div class="contact-left">
+                <span class="section-num">04</span>
+                <h2>Have a project?<br>Let's build it.</h2>
+                <p>Tell me about your idea — I'll get back to you within 24 hours.</p>
+                <div class="contact-details">
+                    <a href="mailto:naveed.ali35824@gmail.com"><i class='bx bx-envelope'></i> naveed.ali35824@gmail.com</a>
+                    <a href="https://wa.me/923026829510" target="_blank" rel="noopener"><i class='bx bxl-whatsapp'></i> +92 302 6829510</a>
+                    <a href="tel:+923026829510"><i class='bx bx-phone'></i> Call Me</a>
+                </div>
+            </div>
+            <form class="contact-form" action="https://formsubmit.co/naveed.ali35824@gmail.com" method="POST">
+                <input type="hidden" name="_subject" value="New Portfolio Contact — Naveed Ali">
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_template" value="table">
+                <div class="field"><input type="text" name="name" placeholder="Your Name" required></div>
+                <div class="field"><input type="email" name="email" placeholder="Email Address" required></div>
+                <div class="field"><input type="text" name="project_type" placeholder="Project Type (Website, App, etc.)"></div>
+                <div class="field"><textarea name="message" rows="5" placeholder="Tell me about your project..." required></textarea></div>
+                <button type="submit" class="btn btn-lime btn-full">Send Message <i class='bx bx-send'></i></button>
+            </form>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>&copy; 2026 Naveed Ali</p>
+        <a href="#home" class="footer-top">Back to top ↑</a>
+    </footer>
+
+    <script>
+        window.PORTFOLIO_ROLES = ["Web Developer & Tracking","GHL CRM Automation","Conversion & Funnel Expert","WordPress Development","React & React Native"];
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>

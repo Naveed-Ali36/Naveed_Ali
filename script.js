@@ -85,13 +85,26 @@ form?.addEventListener('submit', async (e) => {
     btn.disabled = true;
     btn.innerHTML = 'Sending...';
 
-    try {
-        const response = await fetch(form.action || 'api/contact.php', {
-            method: 'POST',
-            body: new FormData(form)
-        });
-        const data = await response.json();
+    const formData = new FormData(form);
+    const payload = Object.fromEntries(formData.entries());
 
+    try {
+        let response;
+        if (form.action.includes('formsubmit.co')) {
+            const ajaxUrl = form.action.replace('https://formsubmit.co/', 'https://formsubmit.co/ajax/');
+            response = await fetch(ajaxUrl, {
+                method: 'POST',
+                headers: { 'Accept': 'application/json' },
+                body: formData
+            });
+        } else {
+            response = await fetch(form.action || 'api/contact.php', {
+                method: 'POST',
+                body: formData
+            });
+        }
+
+        const data = await response.json();
         if (data.success) {
             btn.innerHTML = 'Sent! ✓';
             btn.style.background = '#22c55e';
